@@ -13,7 +13,20 @@ class ContentType {
         // Set the default options for the type
         $default_options = array(
             'public' => true,
-            'supports' => array('title', 'editor', 'revisions', 'thumbnail')
+            'supports' => array('title', 'editor', 'revisions', 'thumbnail'),
+            'capability_type' => array($labels['singular_name'], $labels['plural_name']),
+            'capabilities' => array(
+				'publish_posts' => 'publish_' .$this->type,
+				'edit_posts' => 'edit_' .$this->type,
+				'edit_others_posts' => 'edit_others_' .$this->type,
+				'edit_published_posts' => 'edit_published_' .$this->type,
+				'delete_posts' => 'delete_' .$this->type,
+				'delete_others_posts' => 'delete_others_' .$this->type,
+				'read_private_posts' => 'read_private_' .$this->type,
+				'edit_post' => 'edit_' .$this->type,
+				'delete_post' => 'delete_' .$this->type,
+				'read_post' => 'read_' .$this->type
+            )
         );
 
         $this->options = $options + $default_options;
