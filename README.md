@@ -15,25 +15,36 @@ The default options for the post are the following:
             'public' => true,
             'supports' => array('title', 'editor', 'revisions', 'thumbnail')
 
-So if you wanted to add a feature such as archive, you would need to define an array with these options:
+To create a type called cycling-trips and change its slug, your code would be something like this:
 
-            $default_options = array(
-                'has_archive' => true
-            );
+$edb_cycling_trip = new ContentType('edb_cycling_trip',
+                                        array(
+                                        'has_archive' => true,
+                                        'menu_icon' => 'dashicons-palmtree',
+                                        'rewrite' => array(
+                                                'slug' => 'cycling-trips',
+                                        )
+                                        ),
+                                        array(
+                                        'singular_name'=> 'Cycling Trip',
+                                        'plural_name' => 'Cycling Trips'
+                                        )
+                                );
 
-And pass it to the constructor function.
+# Version History
 
-To create a custom post type, the code that you would use would be:
+## 1.0.2 - February 19, 2019
 
-        $events = new STContentType( 'events', $default_options, array('singular_name'=> 'Event', 'plural_name' => 'Events')); 
+* Modified Read me file.
+* Fixed version number of plugin.
 
-# Version History        
+## 1.0.1 
+* Fixed Read Me File
 
-### 1.0
+## 1.0
 * Initial Release
 
-### 1.0.1 
-* Fixed Read Me File
+
 
 
 

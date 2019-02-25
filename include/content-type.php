@@ -65,7 +65,4 @@ class ContentType {
         );
     }
 
-    public static function get() {
-        echo 'get';
-    }
 }
