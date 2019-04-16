@@ -10,7 +10,7 @@ class ContentType {
     public function __construct( $type, $options = array(), $labels = array() ) {
         $this->type = $type;
 
-        // Set the default options for the type
+        // Set the default options for the type.
         $default_options = array(
             'public' => true,
             'supports' => array('title', 'editor', 'revisions', 'thumbnail'),
@@ -28,7 +28,7 @@ class ContentType {
 				'read_post' => 'read_' .$this->type
             )
         );
-
+        // Merge the default options with the custom options
         $this->options = $options + $default_options;
 
         $required_labels = array(
@@ -36,6 +36,7 @@ class ContentType {
             'plural_name' => ucwords ( $this->type )
         );
         
+        // Required labels will only take effect if $labels is not defined, otherwise they overwrite it in this merge.
         $this->labels = $labels + $required_labels;
         $this->options['labels'] = $this->labels + $this->default_labels();
 
