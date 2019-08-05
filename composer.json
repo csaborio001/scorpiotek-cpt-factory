@@ -1,5 +1,6 @@
 {
     "name": "scorpiotek/cpt-factory",
+    "description": "A library that eases the process of creating WordPress CPT and Taxonomies",
     "type": "library",
     "require": {
         "php": ">=5.4.0"
@@ -15,5 +16,15 @@
             "name": "Christian Saborio",
             "email": "csaborio@scorpiotek.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "ScorpioTek\\WordPress\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ScorpioTek\\WordPress\\Tests\\": "tests/"
+        }
+    }
 }

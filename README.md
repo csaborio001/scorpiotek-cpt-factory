@@ -1,5 +1,10 @@
 # Version History
 
+## 1.1
+
+* No longer a WordPress plugin, now working as a library using composer.
+* Changed the folder hierarchy, included tests, src, directory and changed namespaces
+
 ## 1.0.3
 
 * Feature added : custom taxonomies can be easily created.

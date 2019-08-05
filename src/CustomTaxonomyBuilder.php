@@ -1,6 +1,6 @@
 <?php
 
-namespace ScorpioTek\WordPress\Util\CPT;
+namespace ScorpioTek\WordPress;
 
 class CustomTaxonomy {
     private $taxonomy_name;
