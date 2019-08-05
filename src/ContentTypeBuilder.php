@@ -2,7 +2,7 @@
 
 namespace ScorpioTek\WordPress;
 
-class ContentType {
+class ContentTypeBuilder {
     private $type;
     private $options = array();
     private $labels = array();

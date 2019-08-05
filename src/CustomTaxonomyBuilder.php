@@ -2,7 +2,7 @@
 
 namespace ScorpioTek\WordPress;
 
-class CustomTaxonomy {
+class CustomTaxonomyBuilder {
     private $taxonomy_name;
     private $content_type;
     private $options = array();
