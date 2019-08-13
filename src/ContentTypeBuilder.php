@@ -13,7 +13,7 @@ class ContentTypeBuilder {
         // Set the default options for the type.
         $default_options = array(
             'public' => true,
-            'supports' => array('title', 'editor', 'revisions', 'thumbnail'),
+            'supports' => array( 'title', 'editor', 'revisions' ),
             'capability_type' => array($labels['singular_name'], $labels['plural_name']),
             'capabilities' => array(
 				'publish_posts' => 'publish_' .$this->type,
@@ -26,8 +26,18 @@ class ContentTypeBuilder {
 				'edit_post' => 'edit_' .$this->type,
 				'delete_post' => 'delete_' .$this->type,
 				'read_post' => 'read_' .$this->type
-            )
+            ),
+            // 'map_meta_cap' => true,
         );
+
+        // $capabilities = $default_options['capabilities'];
+        // $admin_role = get_role( 'administrator' );
+        // foreach ( $capabilities as $capabilities => $capability_name ) {
+        //     $admin_role->remove_cap( $capability_name );
+        // }
+
+
+
         // Merge the default options with the custom options
         $this->options = $options + $default_options;
 
@@ -46,6 +56,11 @@ class ContentTypeBuilder {
 
     public function register() {
         register_post_type( $this->type, $this->options );
+        $capabilities = $this->options['capabilities'];
+        $admin_role = get_role( 'administrator' );
+        foreach ( $capabilities as $capabilities => $capability_name ) {
+            $admin_role->add_cap( $capability_name );
+        }
     }
 
     public function default_labels() {
