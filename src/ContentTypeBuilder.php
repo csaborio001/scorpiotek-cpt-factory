@@ -13,7 +13,7 @@ class ContentTypeBuilder {
         // Set the default options for the type.
         $default_options = array(
             'public' => true,
-            'supports' => array( 'title', 'editor', 'revisions' ),
+            'supports' => array( 'title' ),
             'capability_type' => array($labels['singular_name'], $labels['plural_name']),
             'capabilities' => array(
 				'publish_posts' => 'publish_' .$this->type,
@@ -58,8 +58,10 @@ class ContentTypeBuilder {
         register_post_type( $this->type, $this->options );
         $capabilities = $this->options['capabilities'];
         $admin_role = get_role( 'administrator' );
+        $editor_role = get_role( 'editor' );
         foreach ( $capabilities as $capabilities => $capability_name ) {
             $admin_role->add_cap( $capability_name );
+            // $editor_role->add_cap( $capability_name );
         }
     }
 
